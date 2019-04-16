@@ -1,0 +1,5 @@
+---- heroku deployment checklist ----
+1. dynamic port binding -- PORT
+2. specify node environment -- engines
+3. specify start script -- scripts: start
+4. create .gitignore file
