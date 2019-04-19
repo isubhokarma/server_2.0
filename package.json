@@ -8,13 +8,16 @@
     "npm": "6.9.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.5.2",
+    "nodemon": "^1.18.11",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^2.0.0"
   }
