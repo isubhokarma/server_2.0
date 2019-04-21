@@ -3,3 +3,6 @@
 2. specify node environment -- engines
 3. specify start script -- scripts: start
 4. create .gitignore file
+
+---- MongoDB Atlas (Cloud DB) ----
+Don't forget to whitelist IP address
