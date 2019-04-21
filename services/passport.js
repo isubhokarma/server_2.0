@@ -15,7 +15,15 @@ passport.use(
 
 		//access authenticated and ready to create a new user or look for existing
 		(accessToken, refreshToken, profile, done) => {
-			new User({ googleID: profile.id }).save();
+			User.findOne({ googleID: profile.id }).then(existingUser => {
+				if (existingUser) {
+					done(null, existingUser);
+				} else {
+					new User({ googleID: profile.id })
+						.save()
+						.then(user => done(null, user));
+				}
+			});
 		}
 	)
 );
