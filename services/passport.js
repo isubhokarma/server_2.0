@@ -5,6 +5,20 @@ const keys = require("../config/dev");
 
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => {
+	//user is the existing user id in db
+	//user.id is the auto generated id by mongodb
+	//pass to deserialize user
+	done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+	//collecting the user-id from serialize user and return it as mongoose model instance
+	User.findById(id).then(user => {
+		done(null, user);
+	});
+});
+
 passport.use(
 	new GoogleStrategy(
 		{
