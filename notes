@@ -40,3 +40,8 @@ passport.deserializeUser(function(id, done) {
         done(err, user);
     });            └──────────────→ user object attaches to the request as req.user   
 });
+
+---- KEYS ----
+
+1. Don't forget to change the require target for keys.
+2. process.env -- config
