@@ -29,16 +29,14 @@ passport.use(
 		},
 
 		//access authenticated and ready to create a new user or look for existing
-		(accessToken, refreshToken, profile, done) => {
-			User.findOne({ googleID: profile.id }).then(existingUser => {
-				if (existingUser) {
-					done(null, existingUser);
-				} else {
-					new User({ googleID: profile.id })
-						.save()
-						.then(user => done(null, user));
-				}
-			});
+		async (accessToken, refreshToken, profile, done) => {
+			const existingUser = await User.findOne({ googleID: profile.id });
+			if (existingUser) {
+				return done(null, existingUser);
+			} else {
+				const user = await new User({ googleID: profile.id }).save();
+				done(null, user);
+			}
 		}
 	)
 );
