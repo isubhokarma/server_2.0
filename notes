@@ -63,3 +63,14 @@ export default function(previousState, action) {
       return state;
   }
 }
+
+
+---- EXPORT CONST FETCHUSER ----
+
+
+---- Axios ----
+componentDidMount() {
+  axios.get("/api/current_user").then(res => {
+    console.log(res);
+  });
+}

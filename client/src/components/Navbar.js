@@ -13,7 +13,7 @@ class Navbar extends Component {
 						type="button"
 						className="btn btn-outline-primary col col-lg-2 pull-right"
 					>
-						<i class="fab fa-google" /> Login
+						<i className="fab fa-google" /> Login
 					</button>
 				</div>
 			</nav>
