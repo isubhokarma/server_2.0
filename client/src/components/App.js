@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 import Navbar from "./Navbar";
+import Base from "./Base";
 const Dashboard = () => <h2>Dashboard</h2>;
 const New = () => <h2>New</h2>;
-const Base = () => <h2>Base</h2>;
 
 class App extends Component {
 	componentDidMount() {

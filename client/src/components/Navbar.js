@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
 	renderContent() {
@@ -9,7 +10,7 @@ class Navbar extends Component {
 			case false:
 				return (
 					<a
-						className="btn btn-primary col col-lg-2 pull-right"
+						className="btn btn-outline-primary pull-right"
 						href="/auth/google"
 						role="button"
 					>
@@ -17,7 +18,15 @@ class Navbar extends Component {
 					</a>
 				);
 			default:
-				return "Logged In";
+				return (
+					<a
+						className="btn btn-outline-primary btn-sm pull-right"
+						href="/api/logout"
+						role="button"
+					>
+						Logout
+					</a>
+				);
 		}
 	}
 
@@ -25,14 +34,15 @@ class Navbar extends Component {
 		return (
 			<nav>
 				<div className="navbar navbar-expand-lg navbar-light bg-light">
-					<a
+					<Link
+						to={this.props.auth ? "/activity" : "/"}
 						className="navbar-brand mb-0 h1 col col-lg-4 pull-left"
 						href="localhost:3000"
 					>
 						Navbar
-					</a>
+					</Link>
 					<div className="col" />
-					<div>{this.renderContent()}</div>
+					<div className="col col-lg-2">{this.renderContent()}</div>
 				</div>
 			</nav>
 		);
