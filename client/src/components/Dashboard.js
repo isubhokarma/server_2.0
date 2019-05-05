@@ -12,21 +12,22 @@ class Dashboard extends Component {
 					</div>
 					<div className="col-3">
 						<Link
-							className="btn btn-primary btn-lg my-5"
+							className="btn btn-primary my-5"
 							to={this.props.auth ? "/new" : "/"}
 							role="button"
 						>
-							Create New
+							<i class="fas fa-plus" /> Create New
 						</Link>
 					</div>
 				</div>
-
 				<div className="row">
-					<div className="col-4">
+					<div className="col-5">
 						<label className="sr-only" htmlFor="inlineFormInputGroupSearch" />
 						<div className="input-group my-2">
-							<div className="input-group-prepend">
-								<div className="input-group-text">Search</div>
+							<div class="input-group-prepend">
+								<div class="input-group-text">
+									<i class="fas fa-search" />
+								</div>
 							</div>
 							<input
 								type="text"
@@ -35,9 +36,8 @@ class Dashboard extends Component {
 								placeholder="Customer Number"
 							/>
 						</div>
-
 						<div className="my-2">
-							<button type="submit" className="btn btn-light">
+							<button type="submit" className="btn btn-info">
 								Submit
 							</button>
 						</div>
