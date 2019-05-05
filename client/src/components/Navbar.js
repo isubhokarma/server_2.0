@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import "./navbar-bg.css";
 
 class Navbar extends Component {
 	renderContent() {
 		switch (this.props.auth) {
 			case null:
-				return;
+				return (
+					<button className="btn btn-warning pull-right" type="button" disabled>
+						<span
+							className="spinner-grow spinner-grow-sm"
+							role="status"
+							aria-hidden="true"
+						/>
+						Verifying User
+					</button>
+				);
 			case false:
 				return (
 					<a
-						className="btn btn-outline-primary pull-right"
+						className="btn btn-primary pull-right"
 						href="/auth/google"
 						role="button"
 					>
@@ -20,7 +30,7 @@ class Navbar extends Component {
 			default:
 				return (
 					<a
-						className="btn btn-outline-primary btn-sm pull-right"
+						className="btn btn-danger pull-right"
 						href="/api/logout"
 						role="button"
 					>
@@ -33,16 +43,16 @@ class Navbar extends Component {
 	render() {
 		return (
 			<nav>
-				<div className="navbar navbar-expand-lg navbar-light bg-light">
-					<Link
-						to={this.props.auth ? "/activity" : "/"}
-						className="navbar-brand mb-0 h1 col col-lg-4 pull-left"
-						href="localhost:3000"
-					>
-						Navbar
-					</Link>
-					<div className="col" />
-					<div className="col col-lg-2">{this.renderContent()}</div>
+				<div className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 rounded-bottom">
+					<div className="container">
+						<Link
+							to={this.props.auth ? "/activity" : "/"}
+							className="navbar-brand mb-0 pull-left"
+						>
+							Navbar
+						</Link>
+						{this.renderContent()}
+					</div>
 				</div>
 			</nav>
 		);

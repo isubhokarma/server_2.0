@@ -5,8 +5,8 @@ import * as actions from "../actions";
 
 import Navbar from "./Navbar";
 import Base from "./Base";
-const Dashboard = () => <h2>Dashboard</h2>;
-const New = () => <h2>New</h2>;
+import Dashboard from "./Dashboard";
+import New from "./New";
 
 class App extends Component {
 	componentDidMount() {
@@ -21,7 +21,7 @@ class App extends Component {
 						<Navbar />
 						<Route exact path="/" component={Base} />
 						<Route exact path="/activity" component={Dashboard} />
-						<Route exact path="/activity/new" component={New} />
+						<Route exact path="/new" component={New} />
 					</div>
 				</BrowserRouter>
 			</div>
