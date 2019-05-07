@@ -8,7 +8,11 @@ class Navbar extends Component {
 		switch (this.props.auth) {
 			case null:
 				return (
-					<button className="btn btn-warning pull-right" type="button" disabled>
+					<button
+						className="btn btn-warning pull-right text-light"
+						type="button"
+						disabled
+					>
 						<span
 							className="spinner-grow spinner-grow-sm"
 							role="status"
@@ -43,7 +47,7 @@ class Navbar extends Component {
 	render() {
 		return (
 			<nav>
-				<div className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 rounded-bottom">
+				<div className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 mb-5 rounded-bottom">
 					<div className="container">
 						<Link
 							to={this.props.auth ? "/activity" : "/"}
