@@ -6,7 +6,7 @@ import * as actions from "../actions";
 import Navbar from "./Navbar";
 import Base from "./Base";
 import Dashboard from "./Dashboard";
-import New from "./New";
+import New from "./new/New";
 
 class App extends Component {
 	componentDidMount() {
