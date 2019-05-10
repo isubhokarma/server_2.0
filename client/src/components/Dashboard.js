@@ -38,7 +38,7 @@ class Dashboard extends Component {
 						</div>
 						<div className="my-2">
 							<button type="submit" className="btn btn-info">
-								Submit
+								<i className="fas fa-check" /> Submit
 							</button>
 						</div>
 					</div>

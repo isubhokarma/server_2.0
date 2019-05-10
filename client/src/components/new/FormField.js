@@ -1,9 +1,10 @@
 import React from "react";
 
-export default ({ input }) => {
+export default ({ input, label }) => {
 	return (
-		<div>
-			<input {...input} />
+		<div className="form-row">
+			<label htmlFor="name">{label}</label>
+			<input className="form-control" id="name" {...input} />
 		</div>
 	);
 };
