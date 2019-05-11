@@ -1,10 +1,17 @@
 import React from "react";
 
-export default ({ input, label }) => {
+export default ({ input, label, meta: { error, touched } }) => {
 	return (
-		<div className="form-row">
-			<label htmlFor="name">{label}</label>
-			<input className="form-control" id="name" {...input} />
+		<div className="container">
+			<div className="mt-3 font-weight-bold text-capitalize">
+				<label htmlFor="name">{label}</label>
+			</div>
+			<div>
+				<input className="form-control" id="name" {...input} />
+			</div>
+			<div className="mt-1 text-danger font-italic badge badge-pill badge-light text-wrap">
+				{touched && error}
+			</div>
 		</div>
 	);
 };

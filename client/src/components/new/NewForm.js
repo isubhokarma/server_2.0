@@ -30,19 +30,17 @@ class NewForm extends Component {
 		return (
 			<div className="container">
 				<form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+					{this.renderFields()}
 					<div className="container">
-						<div className="row">{this.renderFields()}</div>
-					</div>
-					<div className="container">
-						<div className="row">
+						<div className="row my-4">
 							<div className="col-6 d-flex justify-content-center">
-								<Link to="#" className="btn btn-danger">
+								<Link to="#" className="btn btn-danger btn-lg">
 									Cancel
 								</Link>
 							</div>
 							<div className="col-6 d-flex justify-content-center">
-								<button type="submit" className="btn btn-primary">
-									<i className="fas fa-check" /> Submit
+								<button type="submit" className="btn btn-primary btn-lg">
+									<i className="fas fa-check" /> Next
 								</button>
 							</div>
 						</div>
@@ -53,6 +51,29 @@ class NewForm extends Component {
 	}
 }
 
+function validate(values) {
+	const errors = {};
+
+	if (!values.title) {
+		errors.title = "You must add a title";
+	}
+
+	if (!values.subject) {
+		errors.subject = "You must add a subject";
+	}
+
+	if (!values.body) {
+		errors.body = "You must add some message";
+	}
+
+	if (!values.emails) {
+		errors.emails = "You must add an email-id";
+	}
+
+	return errors;
+}
+
 export default reduxForm({
+	validate,
 	form: "newForm"
 })(NewForm);
