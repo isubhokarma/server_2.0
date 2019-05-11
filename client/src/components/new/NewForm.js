@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
 import FormField from "./FormField";
+import validateEmails from "../../utils/validateEmails";
 
 const FIELDS = [
 	{ label: "Form Title", name: "title" },
@@ -54,8 +55,17 @@ class NewForm extends Component {
 function validate(values) {
 	const errors = {};
 
+	errors.emails = validateEmails(values.emails || "");
+
+	_.each(FIELDS, ({ name }) => {
+		if (!values[name]) {
+			errors[name] = "You must add a value";
+		}
+	});
+
+	/*
 	if (!values.title) {
-		errors.title = "You must add a title";
+		errors.title = 
 	}
 
 	if (!values.subject) {
@@ -69,6 +79,7 @@ function validate(values) {
 	if (!values.emails) {
 		errors.emails = "You must add an email-id";
 	}
+	*/
 
 	return errors;
 }
