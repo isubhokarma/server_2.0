@@ -3,7 +3,7 @@ import React from "react";
 export default ({ input, label, meta: { error, touched } }) => {
 	return (
 		<div className="container">
-			<div className="mt-3 font-weight-bold text-capitalize">
+			<div className="mt-3 text-capitalize">
 				<label htmlFor="name">{label}</label>
 			</div>
 			<div>

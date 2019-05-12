@@ -4,17 +4,11 @@ import { reduxForm, Field } from "redux-form";
 import { Link } from "react-router-dom";
 import FormField from "./FormField";
 import validateEmails from "../../utils/validateEmails";
-
-const FIELDS = [
-	{ label: "Form Title", name: "title" },
-	{ label: "Subject Line", name: "subject" },
-	{ label: "Email Body", name: "body" },
-	{ label: "Recipient List", name: "emails" }
-];
+import NewFormField from "./NewFormField";
 
 class NewForm extends Component {
 	renderFields() {
-		return _.map(FIELDS, ({ label, name }) => {
+		return _.map(NewFormField, ({ label, name }) => {
 			return (
 				<Field
 					component={FormField}
@@ -30,17 +24,17 @@ class NewForm extends Component {
 	render() {
 		return (
 			<div className="container">
-				<form onSubmit={this.props.handleSubmit(values => console.log(values))}>
+				<form onSubmit={this.props.handleSubmit(this.props.onFormSubmit)}>
 					{this.renderFields()}
 					<div className="container">
 						<div className="row my-4">
 							<div className="col-6 d-flex justify-content-center">
-								<Link to="#" className="btn btn-danger btn-lg">
+								<Link to="#" className="btn btn-danger">
 									Cancel
 								</Link>
 							</div>
 							<div className="col-6 d-flex justify-content-center">
-								<button type="submit" className="btn btn-primary btn-lg">
+								<button type="submit" className="btn btn-primary">
 									<i className="fas fa-check" /> Next
 								</button>
 							</div>
@@ -57,7 +51,7 @@ function validate(values) {
 
 	errors.emails = validateEmails(values.emails || "");
 
-	_.each(FIELDS, ({ name }) => {
+	_.each(NewFormField, ({ name }) => {
 		if (!values[name]) {
 			errors[name] = "You must add a value";
 		}
@@ -86,5 +80,6 @@ function validate(values) {
 
 export default reduxForm({
 	validate,
-	form: "newForm"
+	form: "newForm",
+	destroyOnUnmount: false
 })(NewForm);

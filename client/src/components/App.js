@@ -6,7 +6,7 @@ import * as actions from "../actions";
 import Navbar from "./Navbar";
 import Base from "./Base";
 import Dashboard from "./Dashboard";
-import New from "./new/New";
+import CreateNew from "./new/CreateNew";
 
 class App extends Component {
 	componentDidMount() {
@@ -21,7 +21,7 @@ class App extends Component {
 						<Navbar />
 						<Route exact path="/" component={Base} />
 						<Route exact path="/activity" component={Dashboard} />
-						<Route exact path="/new" component={New} />
+						<Route exact path="/new" component={CreateNew} />
 					</div>
 				</BrowserRouter>
 			</div>
