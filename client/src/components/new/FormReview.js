@@ -17,8 +17,15 @@ const FormReview = ({ onCancel, formValues }) => {
 		<div className="container">
 			<h3>Form Review</h3>
 			{reviewFields}
-			<button type="submit" className="btn btn-warning" onClick={onCancel}>
+			<button
+				type="submit"
+				className="btn btn-warning text-light"
+				onClick={onCancel}
+			>
 				Back
+			</button>
+			<button type="submit" className="btn btn-success">
+				Submit
 			</button>
 		</div>
 	);
