@@ -45,3 +45,49 @@ passport.deserializeUser(function(id, done) {
 
 1. Don't forget to change the require target for keys.
 2. process.env -- config
+
+---- CAPS ----
+
+if a given file exporting a class or comp or a func comp we would be label it with CAPS but if the file return just a func we would label it with a lower case
+eg.: src/components/App.js || src/index.js
+
+---- HOW REDUX WORKS ----
+
+      -----------------------------=[ REDUCERS ]
+      |                                  |
+      |                            --------------
+  [ ACTION ]                       |   STORE    |------------[ TRIGGER ]
+      |                            --------------                 |
+  [ DISPATCH ]                                             [ SUBSCRIPTION ]
+      |                                                           |
+  --------------                                                  |
+  | Components |------------[ PASSES UPDATED STATES AS PROPS ]-----
+  --------------
+  
+https://www.youtube.com/watch?v=np8A_aW7Pew
+
+~hitesh choudhary on youtube - https://www.youtube.com/user/hiteshitube
+
+---- Redux ----
+
+The <Provider /> makes the Redux store available to any nested components that have been wrapped in the connect() function. Since any React component in a React Redux app can be connected, most applications will render a <Provider> at the top level, with the entire app's component tree inside of it. -- Google
+
+Reducers specify how the application's state changes in response to actions sent to the store. Remember that actions only describe what happened, but don't describe how the application's state changes. -- Google
+
+export default function(previousState, action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
+
+---- EXPORT CONST FETCHUSER ----
+
+
+---- Axios ----
+componentDidMount() {
+  axios.get("/api/current_user").then(res => {
+    console.log(res);
+  });
+}
