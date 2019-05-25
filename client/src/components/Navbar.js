@@ -8,7 +8,7 @@ class Navbar extends PureComponent {
       case null:
         return (
           <button
-            className="btn btn-warning pull-right text-light"
+            className="btn btn-warning pull-right text-light btn-sm"
             type="button"
             disabled
           >
@@ -23,7 +23,7 @@ class Navbar extends PureComponent {
       case false:
         return (
           <a
-            className="btn btn-primary pull-right"
+            className="btn btn-primary pull-right btn-sm"
             href="/auth/google"
             role="button"
           >
@@ -33,7 +33,7 @@ class Navbar extends PureComponent {
       default:
         return (
           <a
-            className="btn btn-danger pull-right"
+            className="btn btn-danger pull-right btn-sm"
             href="/api/logout"
             role="button"
           >
@@ -46,7 +46,10 @@ class Navbar extends PureComponent {
   render() {
     return (
       <nav>
-        <div className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 mb-5 rounded-bottom">
+        <div
+          className="navbar navbar-expand-lg navbar-dark bg-dark shadow
+          p-3 mb-5 rounded-bottom"
+        >
           <div className="container">
             <Link
               to={this.props.auth ? "/activity" : "/"}
