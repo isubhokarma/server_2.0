@@ -10,9 +10,11 @@ import App from "./components/App";
 import reducers from "./reducers";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
-// first arg created a dummy reducer and appointed to the store just to get started with redux
-// second arg initial state of the application, most relevant on server side render
-// third arg apply middleware
+// first arg created a dummy reducer and appointed to the store
+// just to get started with redux
+// the second arg initial state of the application, most relevant
+// on server side render
+// and third arg apply middleware
 
 ReactDOM.render(
   <Provider store={store}>
