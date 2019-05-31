@@ -1,11 +1,9 @@
 const proxy = require("http-proxy-middleware");
 
-module.exports = function(app) {
-	app.use(
-		proxy(["/auth/google", "/api"], {
-			target: "http://localhost:5000/"
-		})
-	);
+module.exports = app => {
+  app.use(
+    proxy(["/auth/google", "/api"], {
+      target: "http://localhost:5000/"
+    })
+  );
 };
-
-//"changeOrigin": true, -- package.json
